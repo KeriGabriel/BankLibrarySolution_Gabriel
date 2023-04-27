@@ -27,7 +27,7 @@
             if (amount > 500)
                 amount = 500;
             // changed to == instead of <=
-            if (amount == 0)
+            if (amount <= 0)
             {
                 throw new ArgumentOutOfRangeException("amount");
             }
@@ -36,11 +36,12 @@
             {
                 throw new ArgumentOutOfRangeException("amount");
             }
+            // not needed 
+            //if (amount < 0)
+            //{
+            //    throw new ArgumentOutOfRangeException("amount");
+            //}
 
-            if (amount < 0)
-            {
-                throw new ArgumentOutOfRangeException("amount");
-            }
             //changed += to -= because this is withdraw meathod not deposit
             _balance -= amount;
             return _balance;

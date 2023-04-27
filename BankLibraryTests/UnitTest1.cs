@@ -38,6 +38,15 @@ namespace BankLibraryTests
             Bank bank = new Bank(customer, ballance);
             Assert.AreEqual(ballance-amount, bank.Withdraw(amount));
         }
+        [TestMethod]
+        public void withdraw_over_five_hundred()
+        {
+            int amount = 600;
+            int ballance = 501;
+            string customer = "Test";
+            Bank bank = new Bank(customer, ballance);
+            Assert.AreEqual(ballance - 500, bank.Withdraw(amount));
+        }
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void withdraw_under_zero()
         {
